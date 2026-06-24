@@ -36,8 +36,7 @@ jobs:
         run: npm install
 
       - name: Patch electron-builder-encryptor babel config
-        run: |
-          sed -i 's/plugins: \["@babel\/plugin-transform-arrow-functions"\]/plugins: ["@babel\/plugin-transform-classes", "@babel\/plugin-transform-arrow-functions"]/' node_modules/electron-builder-encryptor/dist/index.js
+        run: node -e "const fs=require('fs');const f='node_modules/electron-builder-encryptor/dist/index.js';let c=fs.readFileSync(f,'utf8');c=c.replace('plugins:[\"@babel/plugin-transform-arrow-functions\"]','plugins:[\"@babel/plugin-transform-classes\",\"@babel/plugin-transform-arrow-functions\"]');fs.writeFileSync(f,c)"
 
       - name: Build Windows application
         run: npm run build:win:full
@@ -80,8 +79,7 @@ jobs:
         run: npm install
 
       - name: Patch electron-builder-encryptor babel config
-        run: |
-          sed -i 's/plugins: \["@babel\/plugin-transform-arrow-functions"\]/plugins: ["@babel\/plugin-transform-classes", "@babel\/plugin-transform-arrow-functions"]/' node_modules/electron-builder-encryptor/dist/index.js
+        run: node -e "const fs=require('fs');const f='node_modules/electron-builder-encryptor/dist/index.js';let c=fs.readFileSync(f,'utf8');c=c.replace('plugins:[\"@babel/plugin-transform-arrow-functions\"]','plugins:[\"@babel/plugin-transform-classes\",\"@babel/plugin-transform-arrow-functions\"]');fs.writeFileSync(f,c)"
 
       - name: Build Mac Intel application
         run: npm run build:mac:x64
@@ -124,8 +122,7 @@ jobs:
         run: npm install
 
       - name: Patch electron-builder-encryptor babel config
-        run: |
-          sed -i 's/plugins: \["@babel\/plugin-transform-arrow-functions"\]/plugins: ["@babel\/plugin-transform-classes", "@babel\/plugin-transform-arrow-functions"]/' node_modules/electron-builder-encryptor/dist/index.js
+        run: node -e "const fs=require('fs');const f='node_modules/electron-builder-encryptor/dist/index.js';let c=fs.readFileSync(f,'utf8');c=c.replace('plugins:[\"@babel/plugin-transform-arrow-functions\"]','plugins:[\"@babel/plugin-transform-classes\",\"@babel/plugin-transform-arrow-functions\"]');fs.writeFileSync(f,c)"
 
       - name: Build Mac ARM application
         run: npm run build:mac:arm64
